@@ -17,7 +17,8 @@ const fetchCats = () => {
 const saveCats = () => {
   fetchCats().then((data) => {
     cats.forEach( async (cat) => {
-      await easyDb.insert("cats", id => ({id: cat.id, url: cat.url, score: 0}));
+      // await easyDb.insert("cats", {id: cat.id, url: cat.url, score: 0});
+      await easyDb.update("cats", cat.id, {id: cat.id, url: cat.url, score: 0});
     })
   })
 }
