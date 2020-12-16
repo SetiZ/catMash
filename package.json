@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js",
+    "dev": "nodemon server.js --ignore './easy-db/'",
     "data": "node database.js"
   },
   "author": "SetiZ",

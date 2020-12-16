@@ -25,11 +25,7 @@ async function updateCat(id) {
 
 async function getAllScore() {
     const catCollection = await easyDb.select("cats");
-    Object.values(catCollection).forEach(element => {
-        console.log(element.score)
-    });
     const count = Object.values(catCollection).reduce((a, b) => a + b.score, 0)
-    console.log(count)
     return count;
 }
 

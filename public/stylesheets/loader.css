@@ -1,6 +1,3 @@
-/*
-  loader
-*/
 .lds-ripple {
   display: inline-block;
   position: relative;
@@ -32,30 +29,4 @@
     height: 72px;
     opacity: 0;
   }
-}
-
-header {
-  text-align: center;
-}
-
-.clowder {
-  text-align: center;
-  margin: 0 auto;
-  width: 90%;
-}
-
-.clowder ul {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-}
-
-.clowder li {
-  flex-basis: 20%;
-}
-
-.clowder li .catImg {
-  object-fit: cover;
-  width: 200px;
-  height: 200px;
 }

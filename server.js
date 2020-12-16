@@ -12,12 +12,12 @@ app.use(express.static(__dirname + '/public'));
 
 app.use('/cats', itemsRouter);
 
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname + '/public/index.html'));
+app.get('/list', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public/cats.html'));
 });
 
-app.get('/mash', function(req, res) {
-  res.sendFile(path.join(__dirname + '/public/mash/mash.html'));
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public/mash.html'));
 });
 
 const server = http.createServer(app);

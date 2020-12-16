@@ -36,6 +36,19 @@ const getTwoCats = () => {
   // console.log(cat1);
 }
 
+const getScores = () => {
+  fetch(`${url}/count`, {
+    method: 'GET',
+    headers: {'Content-Type': 'application/json'}
+  }).then(res => res.json())
+  .then((data) => {
+    const score = document.querySelector(".cat_score")
+    score.innerHTML = `${data} votes`
+  }).catch((e) => {
+    throw new Error(e)
+  })
+}
+
 const sections = document.querySelector(".mash_container")
 const appendCat = (cat) => {
   let compare = document.createElement('section')
@@ -60,4 +73,7 @@ const vote = (id) => {
   })
 }
 
-window.onload = getTwoCats();
+window.onload = () => {
+  getTwoCats();
+  getScores();
+};

@@ -1,0 +1,53 @@
+@import url("font.css");
+@import url("loader.css");
+
+header {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+header .logo {
+  height: 250px;
+}
+
+header h1 {
+  margin: 0 5px;
+}
+
+.clowder {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.clowder ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.clowder li {
+  flex-basis: 20%;
+  position: relative;
+}
+
+.clowder li .cat_img {
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+}
+
+.clowder li .cat_score {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 5em;
+  width: 100%;
+  opacity: 0.75;
+  color: #fff;
+  text-shadow: 2px 0px 3px black;
+}

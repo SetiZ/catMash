@@ -1,0 +1,75 @@
+@import url("font.css");
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+  position: absolute;
+}
+
+header .logo {
+  height: 250px;
+}
+
+header h1 {
+  margin: 0 5px;
+}
+
+footer {
+  position: fixed;
+  text-align: center;
+  width: 10%;
+  padding: 5px 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px -1px 20px rgba(66, 66, 66, 0.3);
+}
+
+footer a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+}
+
+footer a:visited, footer a:hover, footer a:active {
+  color: #000;
+}
+
+main {
+  height: 100%;
+}
+
+.mash_container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.mash_compare {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.mash_compare:hover {
+  background-color: #eeeeee;
+}
+
+.mash_compare img {
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+}
