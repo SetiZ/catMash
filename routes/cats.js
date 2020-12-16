@@ -23,6 +23,16 @@ async function updateCat(id) {
     await easyDb.update("cats", id, { ...cat, score: cat.score + 1 });
 }
 
+async function getAllScore() {
+    const catCollection = await easyDb.select("cats");
+    Object.values(catCollection).forEach(element => {
+        console.log(element.score)
+    });
+    const count = Object.values(catCollection).reduce((a, b) => a + b.score, 0)
+    console.log(count)
+    return count;
+}
+
 // GET ALL
 router.get('/', function (req, res) {
     getCats().then(cats => {
@@ -54,4 +64,14 @@ router.put('/:id', function (req, res) {
     })
 });
 
+
+router.get('/count', function(req, res) {
+    getAllScore().then(cat => {
+        // console.log(cat)
+        res.status(200).json(cat)
+    }).catch(err => {
+        console.error(err);
+        res.sendStatus(404);
+    })
+})
 module.exports = router;
