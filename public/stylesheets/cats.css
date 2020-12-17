@@ -20,6 +20,7 @@ header h1 {
 }
 
 .clowder {
+  text-align: center;
   margin: 0 auto;
   width: 90%;
 }

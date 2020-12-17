@@ -1,4 +1,4 @@
-const url = 'http://localhost:3000/cats';
+const url = `http://${window.location.host}/cats`;
 const myRequest = new Request(url);
 
 const clowderContainer = document.querySelector('.clowder');
@@ -22,4 +22,3 @@ fetch(myRequest)
 }).catch((e) => {
   throw new Error(e)
 })
-

@@ -1,4 +1,4 @@
-const url = 'http://localhost:3000/cats';
+const url = `http://${window.location.host}/cats`;
 
 const getCat = () => {
   return fetch(`${url}/random`, {
