@@ -21,13 +21,11 @@ header h1 {
 footer {
   position: fixed;
   text-align: center;
-  width: 10%;
   padding: 5px 0;
   bottom: 0;
   left: 0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 40%;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   background-color: #fff;
@@ -70,6 +68,37 @@ main {
 
 .mash_compare img {
   object-fit: cover;
-  width: 400px;
-  height: 400px;
+  width: 320px;
+  height: 320px;
+}
+
+@media only screen and (max-width : 785px) {
+  header {
+    top: calc(50% - 70px);
+  }
+
+  header .logo {
+    height: 100px;
+  }
+
+  footer {
+    margin: 0 20%;
+  }
+
+  .mash_container {
+    flex-direction: column;
+  }
+
+  .mash_compare:hover {
+    background-color: #fff;
+  }
+
+  .mash_compare:last-child {
+    background-color: #eeeeee;
+  }
+
+  .mash_compare img {
+    height: 100%;
+    max-height: 284px;
+  }
 }
