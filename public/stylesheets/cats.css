@@ -49,6 +49,7 @@ footer a:visited, footer a:hover, footer a:active {
   text-align: center;
   margin: 0 auto;
   width: 90%;
+  padding-bottom: 60px;
 }
 
 .clowder ul {
