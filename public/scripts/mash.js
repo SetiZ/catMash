@@ -24,13 +24,13 @@ const getTwoCats = () => {
       cat2 = cat
       console.log("cat2", cat2);
       if (cat1.id === cat2.id) {
-        // console.log('same')
-        alert('same')
         getCat().then(cat => {
           cat2 = cat
+          appendCat(cat2);
         })
+      } else {
+        appendCat(cat2);
       }
-      appendCat(cat2);
     })
   })
   // console.log(cat1);
@@ -63,7 +63,7 @@ const vote = (id) => {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'}
   }).then((res) => {
-    console.log(res)
+    // console.log(res)
     if (res.status === 204) {
       sections.innerHTML = "";
       getTwoCats();
