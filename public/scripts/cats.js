@@ -1,4 +1,4 @@
-const url = `http://${window.location.host}/cats`;
+const url = `${window.location.origin}/cats`;
 const myRequest = new Request(url);
 
 const clowderContainer = document.querySelector('.clowder');
