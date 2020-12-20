@@ -3,6 +3,7 @@ const easyDb = require("easy-db-node");
 
 let cats = []
 
+// fetch cats from json
 const fetchCats = () => {
   return fetch('https://latelier.co/data/cats.json')
   .then(response => response.json())
@@ -14,6 +15,7 @@ const fetchCats = () => {
   })
 }
 
+// save to database
 const saveCats = () => {
   fetchCats().then((data) => {
     cats.forEach( async (cat) => {

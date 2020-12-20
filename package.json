@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Cat Mash",
   "main": "server.js",
+  "private": true,
+  "repository": {
+    "url": "https://github.com/SetiZ/catMash"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "easy-db-node": "^1.5.0",
