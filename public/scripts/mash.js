@@ -36,6 +36,13 @@ const getTwoCats = () => {
   // console.log(cat1);
 }
 
+const getTwoRandomCats = () => {
+  getCat().then(cat => {
+    appendCat(cat[0]);
+    appendCat(cat[1]);
+  })
+}
+
 const getScores = () => {
   fetch(`${url}/count`, {
     method: 'GET',
@@ -66,7 +73,8 @@ const vote = (id) => {
     // console.log(res)
     if (res.status === 204) {
       sections.innerHTML = "";
-      getTwoCats();
+      getTwoRandomCats();
+      getScores();
     }
   }).catch((e) => {
     throw new Error(e)
@@ -74,6 +82,6 @@ const vote = (id) => {
 }
 
 window.onload = () => {
-  getTwoCats();
+  getTwoRandomCats();
   getScores();
 };

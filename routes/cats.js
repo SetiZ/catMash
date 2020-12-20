@@ -18,6 +18,21 @@ async function getRandomCat() {
     return randomCat;
 }
 
+async function getRandomCats() {
+    const cats = await easyDb.select("cats");
+    const catIds = Object.keys(cats);
+    const randomIds = catIds.slice(0, 2).map(() => {
+        return catIds.splice(Math.floor(Math.random() * catIds.length), 1)[0];
+    }, catIds.slice());
+    const randomCats = [];
+    await Promise.all(randomIds.map(async (randomId) => {
+        const randomCat = await easyDb.select("cats", randomId);
+        randomCats.push(randomCat)
+    }))
+    console.log(randomCats)
+    return randomCats;
+}
+
 async function updateCat(id) {
     const cat = await easyDb.select("cats", id);
     await easyDb.update("cats", id, { ...cat, score: cat.score + 1 });
@@ -41,7 +56,7 @@ router.get('/', function (req, res) {
 
 // RANDOM
 router.get('/random', function (req, res) {
-    getRandomCat().then(cat => {
+    getRandomCats().then(cat => {
         res.status(200).json(cat);
     }).catch(err => {
         console.error(err);
