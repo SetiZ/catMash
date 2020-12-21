@@ -8,6 +8,7 @@ header {
   width: 100%;
   margin: 20px 0;
   position: absolute;
+  pointer-events: none;
 }
 
 header .logo {

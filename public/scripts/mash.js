@@ -1,5 +1,6 @@
 const url = `${window.location.origin}/cats`;
 
+// get cats from server
 const getCat = () => {
   return fetch(`${url}/random`, {
     method: 'GET',
@@ -7,42 +8,14 @@ const getCat = () => {
   })
   .then(res => res.json())
   .then((data) => {
+    console.log(data)
     return data;
   }).catch((e) => {
     throw new Error(e)
   })
 }
 
-const getTwoCats = () => {
-  let cat1, cat2;
-  getCat().then(cat => {
-    cat1 = cat;
-    console.log("cat1", cat1);
-    appendCat(cat1);
-  }).then(() => {
-    getCat().then(cat => {
-      cat2 = cat
-      console.log("cat2", cat2);
-      if (cat1.id === cat2.id) {
-        getCat().then(cat => {
-          cat2 = cat
-          appendCat(cat2);
-        })
-      } else {
-        appendCat(cat2);
-      }
-    })
-  })
-  // console.log(cat1);
-}
-
-const getTwoRandomCats = () => {
-  getCat().then(cat => {
-    appendCat(cat[0]);
-    appendCat(cat[1]);
-  })
-}
-
+// get score from server
 const getScores = () => {
   fetch(`${url}/count`, {
     method: 'GET',
@@ -56,15 +29,7 @@ const getScores = () => {
   })
 }
 
-const sections = document.querySelector(".mash_container")
-const appendCat = (cat) => {
-  let compare = document.createElement('section')
-  compare.className = "mash_compare"
-  compare.innerHTML = `<img src=${cat.url} loading="lazy" />`
-  compare.addEventListener('click', () => {vote(cat.id)}, false)
-  sections.appendChild(compare)
-}
-
+// update score to server
 const vote = (id) => {
   fetch(`${url}/${id}`, {
     method: 'PUT',
@@ -79,6 +44,22 @@ const vote = (id) => {
   }).catch((e) => {
     throw new Error(e)
   })
+}
+
+const getTwoRandomCats = () => {
+  getCat().then(cat => {
+    appendCat(cat[0]);
+    appendCat(cat[1]);
+  })
+}
+
+const sections = document.querySelector(".mash_container")
+const appendCat = (cat) => {
+  let compare = document.createElement('section')
+  compare.className = "mash_compare"
+  compare.innerHTML = `<img src=${cat.url} loading="lazy" />`
+  compare.addEventListener('click', () => {vote(cat.id)}, false)
+  sections.appendChild(compare)
 }
 
 window.onload = () => {

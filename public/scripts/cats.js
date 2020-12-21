@@ -1,13 +1,14 @@
 const url = `${window.location.origin}/cats`;
-const myRequest = new Request(url);
 
 const clowderContainer = document.querySelector('.clowder');
+// show loader while fetch
 const loader = '<div class="lds-ripple"><div></div><div></div></div>';
 clowderContainer.innerHTML = loader
-fetch(myRequest)
-.then(res => res.json())
-.then((data) => {
-  // console.log(Object.values(data))
+
+fetch(url, {
+  method: 'GET',
+  headers: {'Content-Type': 'application/json'}
+}).then(res => res.json()).then((data) => {
   let list = '<ul>';
   Object.values(data).forEach(cat => {
     // console.log(cat)
